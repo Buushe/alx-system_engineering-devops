@@ -1,0 +1,2 @@
+#!/bin/bash
+/tmp/magic$ file --mime-type -m school.mgc *
