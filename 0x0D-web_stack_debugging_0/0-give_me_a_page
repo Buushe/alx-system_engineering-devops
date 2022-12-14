@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# run apache on holbertonschool/265-0 container
+
 sudo service apache2 start
