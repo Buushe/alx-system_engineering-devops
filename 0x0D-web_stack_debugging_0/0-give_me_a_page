@@ -1,5 +1,2 @@
 #!/usr/bin/env bash
-# run apache on holbertonschool/265-0 container
-
-echo "Hello Holberton" >> /etc/apache2.conf
-service apache2 start
+sudo service apache2 start
