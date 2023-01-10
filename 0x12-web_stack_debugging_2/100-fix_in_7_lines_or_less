@@ -1,0 +1,6 @@
+cript that Run Nginx as Nginx
+pkill -f apache2                        
+chmod 644 /etc/nginx/nginx.conf
+sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+chown nginx:nginx /etc/nginx/nginx.conf          
+sudo -u nginx service nginx start
