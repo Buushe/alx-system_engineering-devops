@@ -1,0 +1,32 @@
+# This script configures Nginx to serve your page from the route /airbnb-onepage/
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        add_header X-Served-By 57647-web-01;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        error_page 404 /error404.html;
+        location = /error404.html {
+                root /var/www/html;
+                internal;
+        }
+
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        }
+
+        location /hbnb_static {
+                alias /data/web_static/current/index.html;
+
+	}
+
+	location /airbnb-onepage/ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
+        }
+
+	location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+		proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    }
+}
